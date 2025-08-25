@@ -10,7 +10,6 @@ services:
       - surikat-network
     labels:
       - "traefik.enable=true"
-      - "traefik.tcp.routers.ftp.tls=true"
       - "traefik.tcp.routers.ftp.rule=HostSNI(`storage.surikat.io`)"
       - "traefik.tcp.routers.ftp.entrypoints=sftp"
       - "traefik.tcp.routers.ftp.service=ftp-service"
