@@ -10,10 +10,11 @@ services:
       - surikat-network
     labels:
       - "traefik.enable=true"
-      - "traefik.tcp.routers.sftp.entrypoints=sftp"
-      - "traefik.tcp.routers.sftp.rule=HostSNI(`storage.surikat.io`)"
-      - "traefik.tcp.routers.sftp.service=sftp-service"
-      - "traefik.tcp.services.sftp-service.loadbalancer.server.port=22"
+      - "traefik.tcp.routers.ftp.tls=true"
+      - "traefik.tcp.routers.ftp.rule=HostSNI(`storage.surikat.io`)"
+      - "traefik.tcp.routers.ftp.entrypoints=sftp"
+      - "traefik.tcp.routers.ftp.service=ftp-service"
+      - "traefik.tcp.services.ftp-service.loadbalancer.server.port=22"
 
 networks:
   surikat-network:
