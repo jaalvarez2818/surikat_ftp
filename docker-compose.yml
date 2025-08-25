@@ -6,7 +6,7 @@ services:
     ports:
       - "3022:22"
     volumes:
-      - /home/jaalvarez2818/SurikatProjects/surikat-geoserver/geoserver_data/rasters/geotiff:/home/${SFTP_USER}/data
+      - /home/jaalvarez2818/SurikatProjects/surikat-geoserver/geoserver_data/rasters/geotiff:/home/${SFTP_USER}/data/geoserver_geotiff
     command: '${SFTP_USER}:${SFTP_PASS}:${SFTP_UID}'
     networks:
       - surikat-network
