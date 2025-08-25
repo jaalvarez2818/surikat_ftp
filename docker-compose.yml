@@ -5,7 +5,7 @@ services:
     restart: always
     volumes:
       - /home/jaalvarez2818/SurikatProjects/surikat-geoserver/geoserver_data:/home/${SFTP_USER}/data
-    command: ${SFTP_USER}:${SFTP_PASS}:${SFTP_UID}
+    command: '${SFTP_USER}:${SFTP_PASS}:${SFTP_UID}'
     networks:
       - surikat-network
     labels:
