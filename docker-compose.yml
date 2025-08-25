@@ -3,6 +3,8 @@ services:
     image: atmoz/sftp
     container_name: surikat_ftp
     restart: always
+    ports:
+      - "3022:22"
     volumes:
       - /home/jaalvarez2818/SurikatProjects/surikat-geoserver/geoserver_data:/home/${SFTP_USER}/data
     command: '${SFTP_USER}:${SFTP_PASS}:${SFTP_UID}'
@@ -10,6 +12,8 @@ services:
       - surikat-network
     labels:
       - "traefik.enable=true"
+      - "traefik.tcp.routers.ftp.tls=true"
+      - "traefik.tcp.routers.ftp.rule=HostSNI(`storage.surikat.io`)"
       - "traefik.tcp.routers.ftp.entrypoints=sftp"
       - "traefik.tcp.routers.ftp.service=ftp-service"
       - "traefik.tcp.services.ftp-service.loadbalancer.server.port=22"
